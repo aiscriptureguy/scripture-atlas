@@ -1183,6 +1183,39 @@ button, input { font: inherit; }
   .hero-shell { min-height: auto; padding: 24px 0 36px; }
   .hero h2 { max-width: 11ch; }
   .hero-copy { padding: 24px 0 12px; }
+  .themes {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 10px;
+  }
+  .theme {
+    min-height: 0;
+    aspect-ratio: 1 / 1;
+    padding: 14px 14px 12px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+  }
+  .theme .label {
+    display: grid;
+    gap: 8px;
+    margin-bottom: 0;
+  }
+  .theme strong {
+    font-size: 0.98rem;
+    line-height: 1.1;
+  }
+  .theme em {
+    font-size: 0.74rem;
+    line-height: 1.35;
+    letter-spacing: 0.06em;
+  }
+  .theme p {
+    display: none;
+  }
+  .theme .count {
+    margin-top: 10px;
+    align-self: flex-start;
+  }
   .modal-card {
     width: calc(100vw - 18px);
     max-height: calc(100svh - 18px);

@@ -172,6 +172,7 @@
     const detailMeta = qs("[data-detail-meta]");
     const detailLabel = qs("[data-detail-label]");
     const detailActions = qs("[data-detail-actions]");
+    const detailPanel = qs(".workspace > .detail");
     const suggestions = qs("[data-suggestions]");
     const searchInput = qs("[data-search]");
     const topicCount = qs("[data-topic-count]");
@@ -198,6 +199,13 @@
 
     function isMobileLayout() {
       return window.matchMedia("(max-width: 1080px)").matches;
+    }
+
+    function scrollDetailIntoView() {
+      if (!isMobileLayout() || !detailPanel) return;
+      requestAnimationFrame(() => {
+        detailPanel.scrollIntoView({ behavior: "smooth", block: "start" });
+      });
     }
 
     function setScriptureActions(container, passage) {
@@ -364,6 +372,7 @@
       setCurrentTopic(id);
       syncTopicUI();
       render();
+      scrollDetailIntoView();
     }
 
     function inspectPassage(id) {
